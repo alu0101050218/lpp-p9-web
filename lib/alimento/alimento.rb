@@ -2,10 +2,10 @@ module Alimento
 
 	class Alimento
 		
-		attr_reader :nombre
+		attr_reader :nombre, :proteinas
 
-		def initialize (nombre)
-			@nombre = nombre 
+		def initialize (nombre, proteinas)
+			@nombre, @proteinas = nombre, proteinas
 		end
 
 	end
