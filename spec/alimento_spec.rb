@@ -55,4 +55,16 @@ RSpec.describe Alimento do
 
 	end
 
+	describe "#Atributos de gei" do
+		
+		it "## Hay un metodo para OBTENER el gei" do
+			expect(@carne_vaca).to respond_to(:gei)
+		end
+
+		it "## Hya un metodo para DAR el gei" do
+			expect(@carne_Vaca.gei).to eq(50)
+		end
+	
+	end
+
 end
