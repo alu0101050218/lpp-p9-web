@@ -96,7 +96,7 @@ RSpec.describe Alimento do
 	describe "# Valor energetico" do
 
 		it "## Hay un metodo para calcular los glucidos" do
-			expect(@carne_vaca.valor_glucidos).to eq(0)
+			expect(@carne_vaca.valor_glucidos(0.0)).to eq(0.0)
 		end
 
 	end
