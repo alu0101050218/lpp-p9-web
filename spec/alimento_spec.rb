@@ -4,6 +4,20 @@ RSpec.describe Alimento do
 	
 	before (:all) do
 		@carne_vaca = Alimento::Alimento.new("Carne de vaca", 21.1,0, 3.1, 50, 164)
+		@carne_cordero = Alimento::Alimento.new("Carne de cordero", 18, 0, 17, 20, 185)
+		@camarones = Alimento::Alimento.new("Camarones (pisifactorias)", 17.6, 1.5, 0.6, 18, 2)
+		@chocolate = Alimento::Alimento.new("Chocolate", 5.3, 47, 30, 2.3, 3.4)
+		@salmon = Alimento::Alimento.new("Salmon (pisifactoria)", 19.9, 0, 13.6, 6, 3.7)
+		@cerdo = Alimento::Alimento.new("Cerdo", 21.5, 0, 6.3, 7.6, 11)
+		@pollo = Alimento::Alimento.new("Pollo", 20.6, 0, 5.6, 5.7, 7.1)
+		@queso = Alimento::Alimento.new("Queso", 25, 1.3, 33, 11, 41)
+		@cerveza = Alimento::Alimento.new("Cerveza", 0.5, 3.6, 0, 0.24, 0.22)
+		@leche = Alimento::Alimento.new("Leche de vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+		@huevo = Alimento::Alimento.new("Huevo", 13, 1.1, 11, 4.2, 5.7)
+		@cafe = Alimento::Alimento.new("Cafe", 0.1, 0, 0, 0.4, 0.3)
+		@tofu = Alimento::Alimento.new("Tofu", 8, 1.9, 4.8, 2, 2.2)
+		@lenteja = Alimento::Alimento.new("Lentejas", 23.5, 53, 1.4, 0.4, 3.4)
+		@nuez = Alimento::Alimento.new("Nuez", 20, 21, 54, 0.3, 7.9)
 	end
 
 	describe "# Nombre del alimento" do
@@ -75,6 +89,14 @@ RSpec.describe Alimento do
 
 		it "## Hay un metodo para DAR el terreno" do
 			expect(@carne_vaca.terreno).to eq(164)
+		end
+
+	end
+
+	describe "# Valor energetico" do
+
+		it "## Hay un metodo para calcular los glucidos" do
+			expect(@carne_vaca.valor_glucidos).to eq(0)
 		end
 
 	end
