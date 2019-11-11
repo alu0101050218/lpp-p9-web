@@ -108,7 +108,7 @@ RSpec.describe Alimento do
 		end
 		
 		it "## Hay un metodo para calcular el valor energetico total" do
-			expect(@carne_vaca.valor_total(@carne_vaca.valor_glucidos(0.0), @carne_vaca.valor_proteinas(21.1), @carne_vaca.valor_lipidos(3.1))).to eq(112.3)
+			expect(@carne_vaca.valor_energetico(@carne_vaca.valor_glucidos(0.0), @carne_vaca.valor_proteinas(21.1), @carne_vaca.valor_lipidos(3.1))).to eq(112.3)
 		end
 
 	end
