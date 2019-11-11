@@ -43,4 +43,16 @@ RSpec.describe Alimento do
 	
 	end
 
+	describe "# Atributo de Lipidos" do
+	
+	it "##Hay un metodo para OBTENER los lipidos" do
+		expect(@carne_vaca).to respond.to(:lipidos)
+	end
+
+	it "## Hay un metodo para DAR los lipidos" do
+		expect(@carne_vaca.lipidos).to eq(3.1)
+	end
+
+	end
+
 end
