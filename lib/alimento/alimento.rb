@@ -15,6 +15,10 @@ module Alimento
 		def valor_proteinas (proteinas)
 			return (proteinas*4).round(1)
 		end
+		
+		def valor_lipidos (lipidos)
+			return (lipidos*9).round(1)
+		end
 
 	end
 

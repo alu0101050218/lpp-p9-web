@@ -104,7 +104,7 @@ RSpec.describe Alimento do
 		end
 		
 		it "## Hay un metodo para calcular las kcal de los lipidos" do
-			except(@carne_vaca.valor_lipidos(3.1)).to eq(27.9)
+			expect(@carne_vaca.valor_lipidos(3.1)).to eq(27.9)
 		end
 
 	end
