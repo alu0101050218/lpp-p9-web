@@ -3,7 +3,7 @@ require 'alimento'
 RSpec.describe Alimento do
 	
 	before (:all) do
-		@carne_vaca = Alimento::Alimento.new("Carne de vaca", 21.1,0, 3.1)
+		@carne_vaca = Alimento::Alimento.new("Carne de vaca", 21.1,0, 3.1, 50)
 	end
 
 	describe "# Nombre del alimento" do
@@ -61,8 +61,8 @@ RSpec.describe Alimento do
 			expect(@carne_vaca).to respond_to(:gei)
 		end
 
-		it "## Hya un metodo para DAR el gei" do
-			expect(@carne_Vaca.gei).to eq(50)
+		it "## Hay un metodo para DAR el gei" do
+			expect(@carne_vaca.gei).to eq(50)
 		end
 	
 	end
