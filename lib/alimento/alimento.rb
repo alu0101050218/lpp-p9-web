@@ -11,6 +11,10 @@ module Alimento
 		def valor_glucidos (carbohidrato)
 			return (carbohidrato*4).round(1)
 		end
+		
+		def valor_proteinas (proteinas)
+			return (proteinas*4).round(1)
+		end
 
 	end
 
