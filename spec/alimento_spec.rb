@@ -1,4 +1,3 @@
-require 'alimento'
 
 RSpec.describe Alimento do
 	
@@ -18,6 +17,9 @@ RSpec.describe Alimento do
 		@tofu = Alimento::Alimento.new("Tofu", 8, 1.9, 4.8, 2, 2.2)
 		@lenteja = Alimento::Alimento.new("Lentejas", 23.5, 53, 1.4, 0.4, 3.4)
 		@nuez = Alimento::Alimento.new("Nuez", 20, 21, 54, 0.3, 7.9)
+		
+		@menu= Alimento::Alimento.new("Menu", 0, 0, 0, 0, 0)
+		@hombre = [@salmon, @chocolate, @nuez, @lenteja]
 	end
 
 	describe "# Nombre del alimento" do
@@ -109,6 +111,14 @@ RSpec.describe Alimento do
 		
 		it "## Hay un metodo para calcular el valor energetico total" do
 			expect(@carne_vaca.valor_energetico(@carne_vaca.valor_glucidos(0.0), @carne_vaca.valor_proteinas(21.1), @carne_vaca.valor_lipidos(3.1))).to eq(112.3)
+		end
+
+	end
+
+	describe "#Impactos ambientales segun la dieta" do
+		
+		it "## Hay un metodo para calcular el impacto ambiental en la dieta del hombre" do
+			expect(@menu_hombre.impacto_ambiental(@hombre)).to eq(11.9)
 		end
 
 	end

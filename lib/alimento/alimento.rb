@@ -23,7 +23,7 @@ module Alimento
 		def valor_energetico (valor_glucidos, valor_proteinas, valor_lipidos)
 			return (valor_glucidos + valor_proteinas + valor_lipidos).round(1)
 		end
-
+		
 	end
 
 end
