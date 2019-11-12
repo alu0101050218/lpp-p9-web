@@ -24,6 +24,22 @@ module Alimento
 			return (valor_glucidos + valor_proteinas + valor_lipidos).round(1)
 		end
 		
+		def impacto_ambiental(persona, cuantos_persona)
+			i = 0
+			impacto_amb = 0
+			while i < persona.length do
+				impacto_amb += persona[i].gei * cuantos_persona[i]
+				i += 1
+			end
+			return (impacto_amb).round(1)
+
+
+			#persona.each do |i :persona|
+			#	impacto_amb += persona[i].gei * cuantos_persona[i]
+			#end
+			#return impacto_amb.round(1)
+		end
+
 	end
 
 end
