@@ -19,7 +19,10 @@ RSpec.describe Alimento do
 		@nuez = Alimento::Alimento.new("Nuez", 20, 21, 54, 0.3, 7.9)
 		
 		@menu= Alimento::Alimento.new("Menu", 0, 0, 0, 0, 0)
-
+		@hombre = [@salmon, @chocolate, @nuez, @lenteja]
+		@cuantos_hombre = [1, 2, 3, 1]
+		@mujer = [@chocolate, @lenteja, @queso, @nuez]
+		@cuantos_mujer = [2, 1, 1, 1]
 	end
 
 	describe "# Nombre del alimento" do
@@ -117,10 +120,18 @@ RSpec.describe Alimento do
 
 	describe "#Impactos ambientales segun la dieta" do
 		
-		it "## Hay un metodo para calcular el impacto ambiental en la dieta del hombre" do	
-			@hombre = [@salmon, @chocolate, @nuez, @lenteja]
-			@cuantos_hombre = [1, 2, 3, 1]
+		it "## Hay un metodo para calcular el impacto ambiental en la dieta" do	
 			expect(@menu.impacto_ambiental(@hombre, @cuantos_hombre)).to eq(11.9)
+			expect(@menu.impacto_ambiental(@mujer, @cuantos_mujer)).to eq(16.3)
+		end
+	
+	end
+		
+	describe "#Uso de terreno de los alimentos de la dieta" do
+			
+		it "## Hay un metodo para calcular el uso del terreno" do
+			expect(@menu.uso_terreno(@hombre, @cuantos_hombre)).to eq(37.6)	
+			expect(@menu.uso_terreno(@mujero, @cuantos_mujer)).to eq(59.1)
 		end
 
 	end
