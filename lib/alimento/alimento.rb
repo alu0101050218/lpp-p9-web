@@ -32,12 +32,16 @@ module Alimento
 				i += 1
 			end
 			return (impacto_amb).round(1)
+		end
 
-
-			#persona.each do |i :persona|
-			#	impacto_amb += persona[i].gei * cuantos_persona[i]
-			#end
-			#return impacto_amb.round(1)
+		def uso_terreno(persona, cuantos_persona)
+			i = 0
+			uso_ter = 0
+			while i < persona.length do
+				uso_ter += persona[i].terreno * cuantos_persona[i]
+				i += 1
+			end
+			return (uso_ter).round(1)
 		end
 
 	end

@@ -127,11 +127,11 @@ RSpec.describe Alimento do
 	
 	end
 		
-	describe "#Uso de terreno de los alimentos de la dieta" do
+	describe "# Uso de terreno de los alimentos de la dieta" do
 			
 		it "## Hay un metodo para calcular el uso del terreno" do
 			expect(@menu.uso_terreno(@hombre, @cuantos_hombre)).to eq(37.6)	
-			expect(@menu.uso_terreno(@mujero, @cuantos_mujer)).to eq(59.1)
+			expect(@menu.uso_terreno(@mujer, @cuantos_mujer)).to eq(59.1)
 		end
 
 	end
