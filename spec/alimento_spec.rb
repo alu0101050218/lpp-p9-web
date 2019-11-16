@@ -23,6 +23,10 @@ RSpec.describe Alimento do
 		@cuantos_hombre = [1, 2, 3, 1]
 		@mujer = [@chocolate, @lenteja, @queso, @nuez]
 		@cuantos_mujer = [2, 1, 1, 1]
+		
+		
+		@lista = Alimento::List.new()
+
 	end
 
 	describe "# Nombre del alimento" do
