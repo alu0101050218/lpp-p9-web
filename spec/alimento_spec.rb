@@ -25,7 +25,7 @@ RSpec.describe Alimento do
 		@cuantos_mujer = [2, 1, 1, 1]
 		
 		
-		@lista = Alimento::List.new()
+		@nodo_vaca = Alimento::Node.new(@carne_vaca, nil, nil)
 
 	end
 
@@ -136,6 +136,17 @@ RSpec.describe Alimento do
 		it "## Hay un metodo para calcular el uso del terreno" do
 			expect(@menu.uso_terreno(@hombre, @cuantos_hombre)).to eq(37.6)	
 			expect(@menu.uso_terreno(@mujer, @cuantos_mujer)).to eq(59.1)
+		end
+
+	end
+
+
+
+	##LISTA
+	describe "# Hay metodos para obtener los datos de cada nodo" do
+		
+		it "## Hay un metodo para coger el valor de un nodo" do
+			expect(@nodo_vaca.value.nombre).to eq("Carne de vaca")	
 		end
 
 	end
