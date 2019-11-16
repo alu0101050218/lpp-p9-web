@@ -26,6 +26,7 @@ RSpec.describe Alimento do
 		
 		
 		@nodo_vaca = Alimento::Node.new(@carne_vaca, nil, nil)
+		@lista = Alimento::List.new(@carne_vaca)
 
 	end
 
@@ -147,6 +148,14 @@ RSpec.describe Alimento do
 		
 		it "## Hay un metodo para coger el valor de un nodo" do
 			expect(@nodo_vaca.value.nombre).to eq("Carne de vaca")	
+		end
+
+	end
+
+	describe "# Hay metodos para obtener los datos de los nodos de la lista" do
+		
+		it "## Hay un metodo para obtener el HEAD de la lista" do
+			expect(@lista.head.value.nombre).to eq("Carne de vaca")
 		end
 
 	end
