@@ -172,6 +172,14 @@ RSpec.describe Alimento do
 		it "## Hau un metodo para insertar mas de un elemento en la lista" do
 			expect(@lista).to respond_to(:insert_sundry)
 		end
+		
+	end
+
+	context "# Hay metodos para extraer nodos de la lista" do
+	
+		it "## Hay un metodo para extraer el primer elemento de la lista" do
+			expect(@lista).to respond_to(:extract_head)
+		end
 
 	end
 
