@@ -11,7 +11,7 @@ module Alimento
 			@tail = @head
 		end
 
-
+		def insert_
 	end
 
 end

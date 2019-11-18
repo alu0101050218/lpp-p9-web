@@ -29,7 +29,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "# Nombre del alimento" do
+	context "# Nombre del alimento" do
 
 		it "## Hay un metodo para OBTENER el nombre del alimento" do
 			expect(@carne_vaca).to respond_to(:nombre)
@@ -42,7 +42,7 @@ RSpec.describe Alimento do
 	end
 
 
-	describe "# Artributo de proteina" do
+	context "# Artributo de proteina" do
 	
 		it "## Hay un metodo para OBTENER las proteinas del alimento" do
 			expect(@carne_vaca).to respond_to(:proteinas)
@@ -54,7 +54,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "# Atributo de carbohidratos" do
+	context "# Atributo de carbohidratos" do
 	
 		it "## Hay un metodo para OBTENER los carbohidratos" do
 			expect(@carne_vaca).to respond_to(:carbohidratos)	
@@ -66,7 +66,7 @@ RSpec.describe Alimento do
 	
 	end
 
-	describe "# Atributo de Lipidos" do
+	context "# Atributo de Lipidos" do
 	
 		it "## Hay un metodo para OBTENER los lipidos" do
 			expect(@carne_vaca).to respond_to(:lipidos)
@@ -78,7 +78,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "#Atributo de gei" do
+	context "#Atributo de gei" do
 		
 		it "## Hay un metodo para OBTENER el gei" do
 			expect(@carne_vaca).to respond_to(:gei)
@@ -90,7 +90,7 @@ RSpec.describe Alimento do
 	
 	end
 	
-	describe "#Atributo del terreno" do
+	context "#Atributo del terreno" do
 	
 		it "## Hay un metodo para OBTENER el terreno" do
 			expect(@carne_vaca).to respond_to(:terreno)
@@ -102,7 +102,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "# Valor energetico" do
+	context "# Valor energetico" do
 
 		it "## Hay un metodo para calcular las kcal de los glucidos" do
 			expect(@carne_vaca.valor_glucidos(0.0)).to eq(0.0)
@@ -122,7 +122,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "#Impactos ambientales segun la dieta" do
+	context "#Impactos ambientales segun la dieta" do
 		
 		it "## Hay un metodo para calcular el impacto ambiental en la dieta" do	
 			expect(@menu.impacto_ambiental(@hombre, @cuantos_hombre)).to eq(11.9)
@@ -131,7 +131,7 @@ RSpec.describe Alimento do
 	
 	end
 		
-	describe "# Uso de terreno de los alimentos de la dieta" do
+	context "# Uso de terreno de los alimentos de la dieta" do
 			
 		it "## Hay un metodo para calcular el uso del terreno" do
 			expect(@menu.uso_terreno(@hombre, @cuantos_hombre)).to eq(37.6)	
@@ -143,7 +143,7 @@ RSpec.describe Alimento do
 
 
 	##LISTA
-	describe "# Hay metodos para obtener los datos de cada nodo" do
+	context "# Hay metodos para obtener los datos de cada nodo" do
 		
 		it "## Hay un metodo para coger el valor de un nodo" do
 			expect(@nodo_vaca.value.nombre).to eq("Carne de vaca")	
@@ -151,7 +151,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "# Hay metodos para obtener los datos de los nodos de la lista" do
+	context "# Hay metodos para obtener los datos de los nodos de la lista" do
 		
 		it "## Hay un metodo para obtener el HEAD de la lista" do
 			expect(@lista.head.value.nombre).to eq("Carne de vaca")
@@ -159,6 +159,14 @@ RSpec.describe Alimento do
 		
 		it "## Hay un metodo para obtener el TAIL de a lista" do
 			expect(@lista.tail.value.nombre).to eq("Carne de vaca")
+		end
+		
+	end
+
+	context "# Hay metodos para insertar los nodos en la lista" do
+		
+		it "## Hay un metodo para insertar un elemento" do
+			expect(@lista).to respond_to(:insert_head)
 		end
 
 	end
