@@ -1,4 +1,3 @@
-
 RSpec.describe Alimento do
 	
 	before (:all) do
@@ -156,6 +155,10 @@ RSpec.describe Alimento do
 		
 		it "## Hay un metodo para obtener el HEAD de la lista" do
 			expect(@lista.head.value.nombre).to eq("Carne de vaca")
+		end
+		
+		it "## Hay un metodo para obtener el TAIL de a lista" do
+			expect(@lista.tail.value.nombre).to eq("Carne de vaca")
 		end
 
 	end
