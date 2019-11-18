@@ -16,7 +16,15 @@ module Alimento
 			new_head = Node.new(value, nil,actual_head)
 			actual_head.next = new_head
 		end
-
+		
+		def insert_sundry (value_array)
+			i = 0
+			while i < value_array.lenght do
+				insert_head(value_array[i])
+				i += 1
+			end
+		end
+			
 
 	end
 
