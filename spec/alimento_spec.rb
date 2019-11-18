@@ -180,7 +180,10 @@ RSpec.describe Alimento do
 		it "## Hay un metodo para extraer el primer elemento de la lista" do
 			expect(@lista).to respond_to(:extract_head)
 		end
-
+		
+		it "## Hay un metodo para extraer el ultimo elemento de la lista" do
+			expect(@lista).to respond_to(:extract_tail)
+		end
 	end
 
 end
