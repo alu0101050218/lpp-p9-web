@@ -30,6 +30,15 @@ module Alimento
 			new_head = actual_head.prev
 			actual_head.prev = nil
 			new_head.next = nil
+			return new_head
+		end
+		
+		def extract_tail
+			actual_tail = @tail
+			new_tail = actual_tail.next
+			actual_tail.next = nil
+			new_tail.prev = nil
+			return new_tail
 		end
 
 	end
