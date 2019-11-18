@@ -168,6 +168,10 @@ RSpec.describe Alimento do
 		it "## Hay un metodo para insertar un elemento" do
 			expect(@lista).to respond_to(:insert_head)
 		end
+		
+		it "## Hau un metodo para insertar mas de un elemento en la lista" do
+			expect(@lista).to respond_to(:insert_sundry)
+		end
 
 	end
 
