@@ -24,7 +24,13 @@ module Alimento
 				i += 1
 			end
 		end
-			
+		
+		def extract_head
+			actual_head = @head
+			new_head = actual_head.prev
+			actual_head.prev = nil
+			new_head.next = nil
+		end
 
 	end
 
