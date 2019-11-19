@@ -204,12 +204,21 @@ RSpec.describe Alimento do
 	end
 	
 	context "# Hay metodos para obtener las emisiones y metros de cada dieta" do
-		it "# Hay un metodo para calcular las emisiones diarias de efecto invernadero" do
+		it "## Hay un metodo para calcular las emisiones diarias de efecto invernadero" do
 			expect(@menu.emision_lista_dia(@española)).to eq(6.1)
 			expect(@menu.emision_lista_dia(@vasca)).to eq(8.5)
 			expect(@menu.emision_lista_dia(@vegetaria)).to eq(27.8)
 			expect(@menu.emision_lista_dia(@vegetaliana)).to eq(6.1)
 			expect(@menu.emision_lista_dia(@locura_carne)).to eq(79.2)
+		end
+
+		it "## Hay un metodo para calcular las emisiones anuales de efecto invernadero" do
+		
+			expect(@menu.emision_lista_anual(@española)).to eq(2226.5)
+			expect(@menu.emision_lista_anual(@vasca)).to eq(3102.5)
+			expect(@menu.emision_lista_anual(@vegetaria)).to eq(10147)
+			expect(@menu.emision_lista_anual(@vegetaliana)).to eq(2226.5)
+			expect(@menu.emision_lista_anual(@locura_carne)).to eq(28908)
 		end
 	end
 end
