@@ -1,4 +1,3 @@
-
 RSpec.describe Alimento do
 	
 	before (:all) do
@@ -23,9 +22,31 @@ RSpec.describe Alimento do
 		@cuantos_hombre = [1, 2, 3, 1]
 		@mujer = [@chocolate, @lenteja, @queso, @nuez]
 		@cuantos_mujer = [2, 1, 1, 1]
+		
+		
+		@nodo_vaca = Alimento::Node.new(@carne_vaca, nil, nil)
+		@lista = Alimento::List.new(@carne_vaca)
+		@española = Alimento::List.new(@chocolate)
+		@menu_español = [@chocolate, @lenteja, @lenteja, @lenteja, @nuez]
+		@vasca = Alimento::List.new(@lenteja)
+		@menu_vasco = [ @lenteja, @lenteja, @lenteja, @chocolate, @chocolate, @chocolate ]
+		@vegetaria = Alimento::List.new(@queso)
+		@menu_vegetario = [ @chocolate, @chocolate, @lenteja, @lenteja, @lenteja, @lenteja, @leche, @leche, @huevo ]
+		@vegetaliana = Alimento::List.new(@chocolate)
+		@menu_vegetaliano = [ @chocolate, @lenteja, @lenteja, @lenteja, @nuez ]
+		@locura_carne = Alimento::List.new(@carne_cordero)
+		@menu_locura = [ @carne_cordero, @carne_cordero, @salmon, @salmon, @salmon, @lenteja, @lenteja, @lenteja ]
+
+
+		@española.insert_sundry(@menu_español)
+		@vasca.insert_sundry(@menu_vasco)
+		@vegetaria.insert_sundry(@menu_vegetario)
+		@vegetaliana.insert_sundry(@menu_vegetaliano)
+		@locura_carne.insert_sundry(@menu_locura)
+
 	end
 
-	describe "# Nombre del alimento" do
+	context "# Nombre del alimento" do
 
 		it "## Hay un metodo para OBTENER el nombre del alimento" do
 			expect(@carne_vaca).to respond_to(:nombre)
@@ -38,7 +59,7 @@ RSpec.describe Alimento do
 	end
 
 
-	describe "# Artributo de proteina" do
+	context "# Artributo de proteina" do
 	
 		it "## Hay un metodo para OBTENER las proteinas del alimento" do
 			expect(@carne_vaca).to respond_to(:proteinas)
@@ -50,7 +71,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "# Atributo de carbohidratos" do
+	context "# Atributo de carbohidratos" do
 	
 		it "## Hay un metodo para OBTENER los carbohidratos" do
 			expect(@carne_vaca).to respond_to(:carbohidratos)	
@@ -62,7 +83,7 @@ RSpec.describe Alimento do
 	
 	end
 
-	describe "# Atributo de Lipidos" do
+	context "# Atributo de Lipidos" do
 	
 		it "## Hay un metodo para OBTENER los lipidos" do
 			expect(@carne_vaca).to respond_to(:lipidos)
@@ -74,7 +95,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "#Atributo de gei" do
+	context "#Atributo de gei" do
 		
 		it "## Hay un metodo para OBTENER el gei" do
 			expect(@carne_vaca).to respond_to(:gei)
@@ -86,7 +107,7 @@ RSpec.describe Alimento do
 	
 	end
 	
-	describe "#Atributo del terreno" do
+	context "#Atributo del terreno" do
 	
 		it "## Hay un metodo para OBTENER el terreno" do
 			expect(@carne_vaca).to respond_to(:terreno)
@@ -98,7 +119,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "# Valor energetico" do
+	context "# Valor energetico" do
 
 		it "## Hay un metodo para calcular las kcal de los glucidos" do
 			expect(@carne_vaca.valor_glucidos(0.0)).to eq(0.0)
@@ -118,7 +139,7 @@ RSpec.describe Alimento do
 
 	end
 
-	describe "#Impactos ambientales segun la dieta" do
+	context "#Impactos ambientales segun la dieta" do
 		
 		it "## Hay un metodo para calcular el impacto ambiental en la dieta" do	
 			expect(@menu.impacto_ambiental(@hombre, @cuantos_hombre)).to eq(11.9)
@@ -127,7 +148,7 @@ RSpec.describe Alimento do
 	
 	end
 		
-	describe "# Uso de terreno de los alimentos de la dieta" do
+	context "# Uso de terreno de los alimentos de la dieta" do
 			
 		it "## Hay un metodo para calcular el uso del terreno" do
 			expect(@menu.uso_terreno(@hombre, @cuantos_hombre)).to eq(37.6)	
@@ -136,4 +157,75 @@ RSpec.describe Alimento do
 
 	end
 
+
+
+	##LISTA
+	context "# Hay metodos para obtener los datos de cada nodo" do
+		
+		it "## Hay un metodo para coger el valor de un nodo" do
+			expect(@nodo_vaca.value.nombre).to eq("Carne de vaca")	
+		end
+
+	end
+
+	context "# Hay metodos para obtener los datos de los nodos de la lista" do
+		
+		it "## Hay un metodo para obtener el HEAD de la lista" do
+			expect(@lista.head.value.nombre).to eq("Carne de vaca")
+		end
+		
+		it "## Hay un metodo para obtener el TAIL de a lista" do
+			expect(@lista.tail.value.nombre).to eq("Carne de vaca")
+		end
+		
+	end
+
+	context "# Hay metodos para insertar los nodos en la lista" do
+		
+		it "## Hay un metodo para insertar un elemento" do
+			expect(@lista).to respond_to(:insert_head)
+		end
+		
+		it "## Hau un metodo para insertar mas de un elemento en la lista" do
+			expect(@lista).to respond_to(:insert_sundry)
+		end
+		
+	end
+
+	context "# Hay metodos para extraer nodos de la lista" do
+	
+		it "## Hay un metodo para extraer el primer elemento de la lista" do
+			expect(@lista).to respond_to(:extract_head)
+		end
+		
+		it "## Hay un metodo para extraer el ultimo elemento de la lista" do
+			expect(@lista).to respond_to(:extract_tail)
+		end
+	end
+	
+	context "# Hay metodos para obtener las emisiones y metros de cada dieta" do
+		it "## Hay un metodo para calcular las emisiones diarias de efecto invernadero" do
+			expect(@menu.emision_lista_dia(@española)).to eq(6.1)
+			expect(@menu.emision_lista_dia(@vasca)).to eq(8.5)
+			expect(@menu.emision_lista_dia(@vegetaria)).to eq(27.8)
+			expect(@menu.emision_lista_dia(@vegetaliana)).to eq(6.1)
+			expect(@menu.emision_lista_dia(@locura_carne)).to eq(79.2)
+		end
+
+		it "## Hay un metodo para calcular las emisiones anuales de efecto invernadero" do
+			expect(@menu.emision_lista_anual(@española)).to eq(2226.5)
+			expect(@menu.emision_lista_anual(@vasca)).to eq(3102.5)
+			expect(@menu.emision_lista_anual(@vegetaria)).to eq(10147)
+			expect(@menu.emision_lista_anual(@vegetaliana)).to eq(2226.5)
+			expect(@menu.emision_lista_anual(@locura_carne)).to eq(28908)
+		end
+
+		it "## Hay un metodo para calcular el terreno de las dietas" do	
+			expect(@menu.uso_lista_terreno(@española)).to eq(24.9)
+			expect(@menu.uso_lista_terreno(@vasca)).to eq(23.8)
+			expect(@menu.uso_lista_terreno(@vegetaria)).to eq(84.9)
+			expect(@menu.uso_lista_terreno(@vegetaliana)).to eq(24.9)
+			expect(@menu.uso_lista_terreno(@locura_carne)).to eq(576.3)
+		end
+	end
 end
