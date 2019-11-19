@@ -57,6 +57,11 @@ module Alimento
 			return sum_emision.round(2)
 		end
 		
+		def emision_lista_anual(list)
+			return (emision_lista_dia(list) * 365).round(2)
+		end
+
+
 	end
 
 end
