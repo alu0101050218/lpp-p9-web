@@ -225,7 +225,7 @@ RSpec.describe Alimento do
 			expect(@menu.uso_lista_terreno(@vasca)).to eq(23.8)
 			expect(@menu.uso_lista_terreno(@vegetaria)).to eq(84.9)
 			expect(@menu.uso_lista_terreno(@vegetaliana)).to eq(24.9)
-			expect(@menu.emision_lista_dia(@locura_carne)).to eq(576.3)
+			expect(@menu.uso_lista_terreno(@locura_carne)).to eq(576.3)
 		end
 	end
 end
