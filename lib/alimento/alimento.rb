@@ -43,7 +43,20 @@ module Alimento
 			end
 			return (uso_ter).round(1)
 		end
-
+	
+		def emision_lista_dia(list)
+			actual = list.tail
+			sum_emision = 0
+			while actual.next != nil do
+				sum_emision += actual.value.gei
+				actual = actual.next
+			end
+			if actual = list.head
+				sum_emision += list.head.value.gei
+			end
+			return sum_emision.round(2)
+		end
+		
 	end
 
 end

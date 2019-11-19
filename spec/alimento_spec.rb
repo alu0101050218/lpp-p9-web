@@ -27,7 +27,7 @@ RSpec.describe Alimento do
 		@nodo_vaca = Alimento::Node.new(@carne_vaca, nil, nil)
 		@lista = Alimento::List.new(@carne_vaca)
 		@española = Alimento::List.new(@chocolate)
-		@menu_español = [ @chocolate, @chocolate, @lenteja, @lenteja, @lenteja, @nuez ]
+		@menu_español = [@chocolate, @lenteja, @lenteja, @lenteja, @nuez]
 		@vasca = Alimento::List.new(@lenteja)
 		@menu_vasco = [ @lenteja, @lenteja, @lenteja, @chocolate, @chocolate, @chocolate ]
 		@vegetaria = Alimento::List.new(@queso)
@@ -36,6 +36,14 @@ RSpec.describe Alimento do
 		@menu_vegetaliano = [ @chocolate, @lenteja, @lenteja, @lenteja, @nuez ]
 		@locura_carne = Alimento::List.new(@carne_cordero)
 		@menu_locura = [ @carne_cordero, @carne_cordero, @salmon, @salmon, @salmon, @lenteja, @lenteja, @lenteja ]
+
+
+		@española.insert_sundry(@menu_español)
+		@vasca.insert_sundry(@menu_vasco)
+		@vegetaria.insert_sundry(@menu_vegetario)
+		@vegetaliana.insert_sundry(@menu_vegetaliano)
+		@locura_carne.insert_sundry(@menu_locura)
+
 	end
 
 	context "# Nombre del alimento" do
@@ -197,7 +205,11 @@ RSpec.describe Alimento do
 	
 	context "# Hay metodos para obtener las emisiones y metros de cada dieta" do
 		it "# Hay un metodo para calcular las emisiones diarias de efecto invernadero" do
-			expect(@española.emision_diaria).to eq()	
+			expect(@menu.emision_lista_dia(@española)).to eq(6.1)
+			expect(@menu.emision_lista_dia(@vasca)).to eq(8.5)
+			expect(@menu.emision_lista_dia(@vegetaria)).to eq(27.8)
+			expect(@menu.emision_lista_dia(@vegetaliana)).to eq(6.1)
+			expect(@menu.emision_lista_dia(@locura_carne)).to eq(79.2)
 		end
 	end
 end
