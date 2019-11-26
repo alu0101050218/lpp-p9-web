@@ -256,6 +256,11 @@ RSpec.describe Alimento do
 			array.each{|iter| names_array.push(iter.value.nombre)}
 			expect(names_array).to eq(["Lentejas","Lentejas","Lentejas"])
 		end
+
+		it "## Se puede saber que alimento tiene el terreno maximo" do
+			node = @española.max{|a, b| a.value.terreno <=> b.value.terreno} 
+			expect(node.value.nombre).to eq("Nuez")
+		end
 	end
 
 end
