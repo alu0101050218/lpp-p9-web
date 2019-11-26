@@ -275,4 +275,10 @@ RSpec.describe Alimento do
 		end
 	end
 
+	context "# Se pueden obtener datos de los platos" do
+		it "## Se puede obtener el nombre de un plato" do
+			expect(@plato_principal).to eq("Hevo con queso")
+		end
+	end
+
 end
