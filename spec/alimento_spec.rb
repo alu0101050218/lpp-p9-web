@@ -244,6 +244,11 @@ RSpec.describe Alimento do
 		it "## Hay un metodo para saber el tama" do
 			expect(@española.count).to eq(6)
 		end
+
+		it "## Se puede hacer el collect de las listas" do
+			expect(@española.collect{|iter| iter.value.proteinas > 21 }).to eq([false,false,true,true,true,false])
+			expect(@vasca.collect{|iter| iter.value.lipidos == 1.4}).to eq([true,true,true,true,false,false,false])
+		end
 	end
 
 end
