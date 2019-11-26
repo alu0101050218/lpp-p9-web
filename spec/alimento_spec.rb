@@ -230,7 +230,6 @@ RSpec.describe Alimento do
 	end
 
 	context "# Hay metodos de mixins" do
-	
 		it "## Hay un metodo para comparar alimentos" do
 			expect(@salmon < @chocolate).to eq(true)
 		end
@@ -239,7 +238,12 @@ RSpec.describe Alimento do
 			expect(@salmon.gei > @chocolate.gei).to eq(true)
 			expect(@salmon.terreno > @chocolate.terreno).to eq(true)
 		end
-	
+	end
+
+	context "# Hay metodos para enumerar las listas" do
+		it "## Hay un metodo para saber el tama" do
+			expect(@española.count).to eq(6)
+		end
 	end
 
 end
