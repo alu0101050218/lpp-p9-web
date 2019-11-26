@@ -283,6 +283,14 @@ RSpec.describe Alimento do
 		it "## Se puede obtener el nombre de un plato" do
 			expect(@plato_principal.nombre).to eq("Vaca con salsa de queso")
 		end
+
+		it "## Se puede obtener un conjunto de alimentos de cada plato" do
+			array = @plato_principal.lista
+			array.collect{|iter| iter.value.nombre}
+			names_array= []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Carne de vaca", "Queso"])
+		end
 	end
 
 end
