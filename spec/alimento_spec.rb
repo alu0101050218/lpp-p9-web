@@ -291,6 +291,10 @@ RSpec.describe Alimento do
 			array.each{|iter| names_array.push(iter.value.nombre)}
 			expect(names_array).to eq(["Carne de vaca", "Queso"])
 		end
+
+		it "## Se puede obtener las cantidades de cada plato" do
+			expect(@plato_principal.cantidades).to eq([300, 100])
+		end
 	end
 
 end
