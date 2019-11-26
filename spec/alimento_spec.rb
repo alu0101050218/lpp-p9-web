@@ -241,7 +241,7 @@ RSpec.describe Alimento do
 	end
 
 	context "# Hay metodos para enumerar las listas" do
-		it "## Hay un metodo para saber el tama" do
+		it "## Hay un metodo para saber el tamaño" do
 			expect(@española.count).to eq(6)
 		end
 
@@ -265,6 +265,13 @@ RSpec.describe Alimento do
 		it "## Se puede saber que alimento tiene el terreno minimo" do
 			node = @locura_carne.min{|a, b| a.value.terreno <=> b.value.terreno} 
 			expect(node.value.nombre).to eq("Lentejas")
+		end
+			
+		it "## Se puede ordenar cada lista por su gei" do
+			array =@vegetaria.sort{|a, b| a.value.gei <=> b.value.gei}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Lentejas", "Lentejas", "Lentejas", "Lentejas", "Chocolate", "Chocolate", "Leche de vaca", "Leche de vaca", "Huevo", "Queso"])
 		end
 	end
 
