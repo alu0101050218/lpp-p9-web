@@ -261,6 +261,11 @@ RSpec.describe Alimento do
 			node = @española.max{|a, b| a.value.terreno <=> b.value.terreno} 
 			expect(node.value.nombre).to eq("Nuez")
 		end
+
+		it "## Se puede saber que alimento tiene el terreno minimo" do
+			node = @locura_carne.min{|a, b| a.value.terreno <=> b.value.terreno} 
+			expect(node.value.nombre).to eq("Lentejas")
+		end
 	end
 
 end
