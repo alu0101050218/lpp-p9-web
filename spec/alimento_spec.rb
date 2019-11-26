@@ -44,6 +44,10 @@ RSpec.describe Alimento do
 		@vegetaliana.insert_sundry(@menu_vegetaliano)
 		@locura_carne.insert_sundry(@menu_locura)
 
+		@lista_principal = Alimento::List.new(@carne_vaca)
+		@cantidades_principal = [ 300, 100 ]
+		@lista_principal.insert_head(@queso)
+		@plato_principal = Alimento::Plato.new("Vaca con salsa de queso", @lista_principal, @cantidades_principal) 
 	end
 
 	context "# Nombre del alimento" do
@@ -277,7 +281,7 @@ RSpec.describe Alimento do
 
 	context "# Se pueden obtener datos de los platos" do
 		it "## Se puede obtener el nombre de un plato" do
-			expect(@plato_principal).to eq("Hevo con queso")
+			expect(@plato_principal.nombre).to eq("Vaca con salsa de queso")
 		end
 	end
 
