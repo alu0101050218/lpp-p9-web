@@ -249,6 +249,13 @@ RSpec.describe Alimento do
 			expect(@española.collect{|iter| iter.value.proteinas > 21 }).to eq([false,false,true,true,true,false])
 			expect(@vasca.collect{|iter| iter.value.lipidos == 1.4}).to eq([true,true,true,true,false,false,false])
 		end
+
+		it "## Se puede hacer el select de las listas" do
+			array = @española.select{|iter| iter.value.nombre == "Lentejas"}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Lentejas","Lentejas","Lentejas"])
+		end
 	end
 
 end
