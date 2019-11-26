@@ -228,4 +228,13 @@ RSpec.describe Alimento do
 			expect(@menu.uso_lista_terreno(@locura_carne)).to eq(576.3)
 		end
 	end
+
+	context "# Hay metodos de mixins" do
+	
+	it "## Hay un metodo para comparar alimentos" do
+		expect(@salmon < @chocolate).to eq(true)
+	end
+
+	end
+
 end
