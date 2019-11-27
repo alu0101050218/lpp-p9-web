@@ -344,5 +344,9 @@ RSpec.describe Alimento do
 		it "## Hay un metodo para obtener el terreno de cada plato" do
 			expect(@ambiental_principal.terreno).to eq(533)
 		end
+
+		it "## Hay un metodo para obtener el formateo de la eficiencia energetica de cada plato" do
+			expect(@ambiental_principal.eficiencia_energetica).to eq("La eficiencia energetica es: 100")
+		end
 	end
 end
