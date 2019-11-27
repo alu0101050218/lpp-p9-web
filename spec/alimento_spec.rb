@@ -300,5 +300,9 @@ RSpec.describe Alimento do
 			expect(@plato_principal.VCT).to eq(739.1)
 		end
 
+		it "## Se puede obtener el porcentaje de proteinas de cada plato" do
+			expect(@plato_principal.porcentaje_proteinas).to eq(47.8)
+		end
+
 	end
 end
