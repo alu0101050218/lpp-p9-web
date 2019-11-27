@@ -515,7 +515,7 @@ RSpec.describe Alimento do
 			expect(names_array).to eq(["Cerdo al horno con verduras"])
 		end
 
-		it "## Se puede calcular el plato maxio segun un criterio" do
+		it "## Se puede calcular el plato maximo segun un criterio" do
 
 			node = @platos_española.max{|a, b| a.value.terreno <=> b.value.terreno} 
 			expect(node.value.nombre).to eq("Lentejas con nueces")
@@ -532,6 +532,23 @@ RSpec.describe Alimento do
 			node = @platos_locura.max{|a, b| a.value.terreno <=> b.value.terreno} 
 			expect(node.value.nombre).to eq("Cerdo al horno con verduras")
 		end
+		
+		it "## Se puede calcular el plato minimo segun un criterio" do
 	
+			node = @platos_española.min{|a, b| a.value.terreno <=> b.value.terreno} 
+			expect(node.value.nombre).to eq("Tabla de chocolate")
+			
+			node = @platos_vasca.min{|a, b| a.value.emisiones <=> b.value.emisiones} 
+			expect(node.value.nombre).to eq("Lentejas bañadas en chocolate")
+			
+			node = @platos_vegetaria.min{|a, b| a.value.emisiones <=> b.value.emisiones} 
+			expect(node.value.nombre).to eq("Plato de lentejas")
+			
+			node = @platos_vegetaliana.min{|a, b| a.value.emisiones <=> b.value.emisiones} 
+			expect(node.value.nombre).to eq("Plato de lentejas")
+			
+			node = @platos_locura.min{|a, b| a.value.emisiones <=> b.value.emisiones} 
+			expect(node.value.nombre).to eq("Buen plato de lentejas")
+		end
 	end
 end
