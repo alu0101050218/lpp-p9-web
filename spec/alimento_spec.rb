@@ -68,6 +68,78 @@ RSpec.describe Alimento do
 		
 		@ambiental_principal = Alimento::PlatoAmbiental.new("Vaca con salsa de queso", @lista_principal, @cantidades_principal)
 		@ambiental_secundario = Alimento::PlatoAmbiental.new("Pollo con nueces y tofu", @lista_secundaria, @cantidades_secundaria)
+		
+
+	#---Dieta española
+		@lista_princ_español = Alimento::List.new(@lenteja)
+		@lista_princ_español.insert_head(@nuez)
+		@cantidades_princ_español = [300, 100]
+		@plato_princ_español = Alimento::PlatoAmbiental.new("Lentejas con nueces", @lista_princ_español, @cantidades_princ_español)
+		
+		@lista_postre_español = Alimento::List.new(@chocolate)
+		@cantidades_postre_español = [200]
+		@plato_postre_español = Alimento::PlatoAmbiental.new("Tabla de chocolate", @lista_postre_español, @cantidades_postre_español)
+	
+		@platos_española = Alimento::List.new(@plato_princ_español)
+		@platos_española.insert_head(@plato_postre_español)
+
+	#---Dieta vasca
+		@lista_princ_vasca = Alimento::List.new(@lenteja)
+		@lista_princ_vasca.insert_head(@chocolate)
+		@cantidades_princ_vasca = [400, 300]
+		@plato_princ_vasca = Alimento::PlatoAmbiental.new("Lentejas bañadas en chocolate", @lista_princ_vasca, @cantidades_princ_vasca)
+
+		@platos_vasca = Alimento::List.new(@plato_princ_vasca)
+
+	#--Dieta vegetaria
+		@lista_princ_vegetaria = Alimento::List.new(@queso)
+		@lista_princ_vegetaria.insert_head(@huevo)
+		@cantidades_princ_vegetaria = [100, 100]
+		@plato_princ_vegetaria = Alimento::PlatoAmbiental.new("Queso asado con huevos fritos", @lista_princ_vegetaria, @cantidades_princ_vegetaria)
+		
+		@lista_sec_vegetaria = Alimento::List.new(@lenteja)
+		@cantidades_sec_vegetaria = [400]
+		@plato_sec_vegetaria = Alimento::PlatoAmbiental.new("Plato de lentejas", @lista_sec_vegetaria, @cantidades_sec_vegetaria)
+
+		@lista_postre_vegetaria = Alimento::List.new(@leche)
+		@lista_postre_vegetaria.insert_head(@chocolate)
+		@cantidades_postre_vegetaria = [200, 200]
+		@plato_postre_vegetaria = Alimento::PlatoAmbiental.new("Nesquik", @lista_postre_vegetaria, @cantidades_postre_vegetaria)
+		
+		@platos_vegetaria = Alimento::List.new(@plato_princ_vegetaria)
+		@conjunto_platos = [@plato_sec_vegetaria, @plato_postre_vegetaria]
+		@platos_vegetaria.insert_sundry(@conjunto_platos)
+	
+	#---Dieta vegetaliana
+		@lista_princ_vegetaliana = Alimento::List.new(@lenteja)
+		@cantidades_princ_vegetaliana = [300]
+		@plato_princ_vegetaliana = Alimento::PlatoAmbiental.new("Plato de lentejas", @lista_princ_vegetaliana, @cantidades_princ_vegetaliana)
+		
+		@lista_postre_vegetaliana = Alimento::List.new(@nuez)
+		@lista_postre_vegetaliana.insert_head(@chocolate)
+		@cantidades_postre_vegetaliana = [100, 200]
+		@plato_postre_vegetaliana = Alimento::PlatoAmbiental.new("Chocolate con nueces", @lista_postre_vegetaliana, @cantidades_postre_vegetaliana)
+		
+		@platos_vegetaliana = Alimento::List.new(@plato_princ_vegetaliana)
+		@platos_vegetaliana.insert_head(@plato_postre_vegetaliana)
+
+	#---Dieta locura
+		
+		@lista_princ_locura = Alimento::List.new(@carne_cordero)
+		@cantidades_princ_locura = [300]
+		@plato_princ_locura = Alimento::PlatoAmbiental.new("Cerdo al horno con verduras", @lista_princ_locura, @cantidades_princ_locura)
+		
+		@lista_sec_locura = Alimento::List.new(@salmon)
+		@cantidades_sec_locura = [300]
+		@plato_sec_locura = Alimento::PlatoAmbiental.new("Medallones de salmon", @lista_sec_locura, @cantidades_sec_locura)
+
+		@lista_postre_locura = Alimento::List.new(@lenteja)
+		@cantidades_postre_locura = [300]
+		@plato_postre_locura = Alimento::PlatoAmbiental.new("Buen plato de lentejas", @lista_postre_locura, @cantidades_postre_locura)
+		
+		@platos_locura = Alimento::List.new(@plato_princ_locura)
+		@conjunto_platos_locura = [@plato_sec_locura, @plato_postre_locura]
+		@platos_locura.insert_sundry(@conjunto_platos_locura)
 	end
 
 	context "# Nombre del alimento" do
@@ -369,12 +441,30 @@ RSpec.describe Alimento do
 
 	context "# Hay metodos para comparar objetos de herencia" do
 	
-	it "## Hay una manera de comparar la eficiencia energetica" do
-		expect(@ambiental_principal > @ambiental_secundario).to eq(true)
-		expect(@plato_postre < @plato_principal).to eq(true)
-		expect(@plato_postre == @plato_postre).to eq(true)
-		expect(@ambiental_principal < @ambiental_secundario).to eq(false)
-	end
+		it "## Hay una manera de comparar la eficiencia energetica" do
+			expect(@ambiental_principal > @ambiental_secundario).to eq(true)
+			expect(@plato_postre < @plato_principal).to eq(true)
+			expect(@plato_postre == @plato_postre).to eq(true)
+			expect(@ambiental_principal < @ambiental_secundario).to eq(false)
+			
+			expect(@plato_princ_español > @plato_postre_español).to eq(false)
+			expect(@plato_princ_español < @plato_postre_español).to eq(true)
+			expect(@plato_princ_español == @plato_postre_español).to eq(false)
+	
+			expect(@plato_princ_vasca > @plato_princ_vasca).to eq(false)
+			expect(@plato_princ_vasca < @plato_princ_vasca).to eq(false)
+			expect(@plato_princ_vasca == @plato_princ_vasca).to eq(true)
+
+
+			expect(@plato_princ_vegetaria > @plato_postre_vegetaria).to eq(true)
+			expect(@plato_princ_vegetaria < @plato_postre_vegetaria).to eq(false)
+			expect(@plato_princ_vegetaria == @plato_postre_vegetaria).to eq(false)
+
+			expect(@plato_princ_vegetaliana > @plato_postre_vegetaliana).to eq(false)
+			expect(@plato_princ_vegetaliana < @plato_postre_vegetaliana).to eq(true)
+			expect(@plato_princ_vegetaliana == @plato_postre_vegetaliana).to eq(false)
+	
+		end
 	
 	end
 end
