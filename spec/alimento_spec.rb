@@ -313,7 +313,7 @@ RSpec.describe Alimento do
 		end
 		
 		it "## Se puede obtener el formateo del plato" do
-			expect(@plato_principal.to_s).to eq("Plato: Vaca con salsa de queso, Componentes: Carne de vaca (300g) | Queso (300g)")
+			expect(@plato_principal.to_s).to eq("Plato: Vaca con salsa de queso, Componentes: 'Carne de vaca (300g)' 'Queso (100g)' ")
 		end
 	end
 end

@@ -52,7 +52,17 @@ module Alimento
 					lipidos += iter.value.valor_lipidos(iter.value.lipidos * @cantidades[i]/100)
 					i += 1}
 				return ((lipidos * 100) / total).round(1)
-		end 
+			end
+
+		def to_s
+			string = "Plato: #{nombre}, Componentes: "
+			i = 0
+			lista.collect{|iter|
+				string += "'#{iter.value.nombre} (#{cantidades[i]}g)' "
+				i += 1 }
+			
+			return string
+		end
 	
 	end
 end
