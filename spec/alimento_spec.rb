@@ -517,6 +517,20 @@ RSpec.describe Alimento do
 
 		it "## Se puede calcular el plato maxio segun un criterio" do
 
+			node = @platos_española.max{|a, b| a.value.terreno <=> b.value.terreno} 
+			expect(node.value.nombre).to eq("Lentejas con nueces")
+			
+			node = @platos_vasca.max{|a, b| a.value.emision <=> b.value.emision} 
+			expect(node.value.nombre).to eq("Lentejas bañadas en chocolate")
+			
+			node = @platos_vegetaria.max{|a, b| a.value.terreno <=> b.value.terreno} 
+			expect(node.value.nombre).to eq("Queso asado con huevos fritos")
+			
+			node = @platos_vegetaliana.max{|a, b| a.value.terreno <=> b.value.terreno} 
+			expect(node.value.nombre).to eq("Chocolate con nueces")
+			
+			node = @platos_locura.max{|a, b| a.value.terreno <=> b.value.terreno} 
+			expect(node.value.nombre).to eq("Cerdo al horno con verduras")
 		end
 	
 	end
