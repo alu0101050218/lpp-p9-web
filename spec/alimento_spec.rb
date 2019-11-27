@@ -486,6 +486,38 @@ RSpec.describe Alimento do
 			expect(@platos_vegetaliana.count).to eq(2)
 			expect(@platos_locura.count).to eq(3)
 		end
+
+		it "## Se puede seleccionar los platos que cumplan ciertos requisitos" do
+
+			array = @platos_española.select{|iter| iter.value.emisiones < 300}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Lentejas con nueces", "Tabla de chocolate"])
+		
+			array = @platos_vasca.select{|iter| iter.value.emisiones > 100}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq([])
+			
+			array = @platos_vegetaria.select{|iter| iter.value.emisiones < 10}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Plato de lentejas"])
+			
+			array = @platos_vegetaliana.select{|iter| iter.value.terreno < 300}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Plato de lentejas", "Chocolate con nueces"])
+			
+			array = @platos_locura.select{|iter| iter.value.terreno > 500}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Cerdo al horno con verduras"])
+		end
+
+		it "## Se puede calcular el plato maxio segun un criterio" do
+
+		end
 	
 	end
 end
