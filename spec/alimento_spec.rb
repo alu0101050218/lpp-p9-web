@@ -272,7 +272,7 @@ RSpec.describe Alimento do
 		end
 			
 		it "## Se puede ordenar cada lista por su gei" do
-			array =@vegetaria.sort{|a, b| a.value.gei <=> b.value.gei}
+			array = @vegetaria.sort{|a, b| a.value.gei <=> b.value.gei}
 			names_array = []
 			array.each{|iter| names_array.push(iter.value.nombre)}
 			expect(names_array).to eq(["Lentejas", "Lentejas", "Lentejas", "Lentejas", "Chocolate", "Chocolate", "Leche de vaca", "Leche de vaca", "Huevo", "Queso"])
@@ -287,7 +287,7 @@ RSpec.describe Alimento do
 		it "## Se puede obtener un conjunto de alimentos de cada plato" do
 			array = @plato_principal.lista
 			array.collect{|iter| iter.value.nombre}
-			names_array= []
+			names_array = []
 			array.each{|iter| names_array.push(iter.value.nombre)}
 			expect(names_array).to eq(["Carne de vaca", "Queso"])
 		end
@@ -295,6 +295,10 @@ RSpec.describe Alimento do
 		it "## Se puede obtener las cantidades de cada plato" do
 			expect(@plato_principal.cantidades).to eq([300, 100])
 		end
-	end
+		
+		it "## Se puede obtener el total en kcal de cada plato" do
+			expect(@plato_principal.VCT).to eq(739.1)
+		end
 
+	end
 end
