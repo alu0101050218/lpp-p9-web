@@ -33,6 +33,10 @@ module Alimento
 			return (total_terreno.sum).round(1)
 		end
 
+		def to_s
+			string = "La eficiencia energetica de '#{nombre}' es: #{VCT()}"
+			return string
+		end
 	end
 
 end
