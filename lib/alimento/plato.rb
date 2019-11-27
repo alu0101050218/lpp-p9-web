@@ -23,7 +23,7 @@ module Alimento
 		return (total_kcal_array.sum).round(1)
 		end
 
-		def porcentaje_proteinas
+		def porcentaje_proteinas 
 			total = VCT()
 			proteinas = 
 			i = 0
