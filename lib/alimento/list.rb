@@ -3,12 +3,23 @@ module Alimento
 	Node = Struct.new(:value, :next, :prev)
 
 	class List
-		
+	
+		include Enumerable
+
 		attr_reader :head, :tail
 
 		def initialize (value)
 			@head = Node.new(value, nil, nil) 
 			@tail = @head
+		end
+
+		def each
+			return nil unless block_given?
+			actual = self.tail
+			while actual
+				yield actual
+				actual = actual.next
+			end
 		end
 
 		def insert_head(value)

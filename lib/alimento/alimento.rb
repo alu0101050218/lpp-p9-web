@@ -2,11 +2,19 @@ module Alimento
 
 	class Alimento
 		
+		include Comparable
+
 		attr_reader :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno
 
 		def initialize (nombre, proteinas, carbohidratos, lipidos, gei, terreno)
 			@nombre, @proteinas, @carbohidratos, @lipidos, @gei, @terreno  = nombre, proteinas, carbohidratos, lipidos, gei, terreno
 		end
+
+
+		def <=>(other)
+			valor_energetico(valor_glucidos(carbohidratos), valor_proteinas(proteinas), valor_lipidos(lipidos)) <=> other.valor_energetico(other.valor_glucidos(other.carbohidratos), other.valor_proteinas(other.proteinas), other.valor_lipidos(other.lipidos))
+		end
+
 
 		def valor_glucidos (carbohidrato)
 			return (carbohidrato*4).round(1)
