@@ -67,6 +67,7 @@ RSpec.describe Alimento do
 		@plato_postre = Alimento::Plato.new("Batido de chocolate", @lista_postre, @cantidades_postre)
 		
 		@ambiental_principal = Alimento::PlatoAmbiental.new("Vaca con salsa de queso", @lista_principal, @cantidades_principal)
+		@ambiental_secundario = Alimento::PlatoAmbiental.new("Pollo con nueces y tofu", @lista_secundaria, @cantidades_secundaria)
 	end
 
 	context "# Nombre del alimento" do
@@ -364,5 +365,14 @@ RSpec.describe Alimento do
 			expect(@española.instance_of?Alimento::Plato).to eq(false)
 			expect(@española.instance_of?Alimento::List).to eq(true)
 		end
+	end
+
+	context "# Hay metodos para comparar objetos de herencia" do
+	
+	it "## Hay una manera de comparar la eficiencia energetica" do
+		expect(@ambiental_principal > @ambiental_secundario).to eq(false)
+
+	end
+	
 	end
 end

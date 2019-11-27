@@ -2,6 +2,8 @@ module Alimento
 
 	class PlatoAmbiental < Plato
 	
+		include Comparable
+
 		attr_reader :emisiones, :terreno
 
 		def initialize(nombre, lista, cantidades)
