@@ -550,5 +550,33 @@ RSpec.describe Alimento do
 			node = @platos_locura.min{|a, b| a.value.emisiones <=> b.value.emisiones} 
 			expect(node.value.nombre).to eq("Buen plato de lentejas")
 		end
+
+		it "## Se puede ordenar los platos de un menu" do
+
+			array = @platos_española.sort{|a, b| a.value.VCT <=> b.value.VCT}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Tabla de chocolate", "Lentejas con nueces"])
+			
+			array = @platos_vasca.sort{|a, b| a.value.VCT <=> b.value.VCT}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Lentejas bañadas en chocolate"])
+			
+			array = @platos_vegetaria.sort{|a, b| a.value.VCT <=> b.value.VCT}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Queso asado con huevos fritos", "Nesquik", "Plato de lentejas"])
+			
+			array = @platos_vegetaliana.sort{|a, b| a.value.VCT <=> b.value.VCT}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Plato de lentejas", "Chocolate con nueces"])
+			
+			array = @platos_locura.sort{|a, b| a.value.VCT <=> b.value.VCT}
+			names_array = []
+			array.each{|iter| names_array.push(iter.value.nombre)}
+			expect(names_array).to eq(["Medallones de salmon", "Cerdo al horno con verduras", "Buen plato de lentejas"])
+		end
 	end
 end
