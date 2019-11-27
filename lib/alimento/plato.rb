@@ -23,5 +23,15 @@ module Alimento
 		return (total_kcal_array.sum).round(1)
 		end
 
+		def porcentaje_proteinas
+			total = VCT()
+			proteinas = 
+			i = 0
+				lista.each{|iter| 
+					proteinas += iter.value.valor_proteinas(iter.value.proteinas * @cantidades[i]/100)
+					i += 1}
+				return ((proteinas * 100) / total).round(1)
+			end
+
 	end
 end
