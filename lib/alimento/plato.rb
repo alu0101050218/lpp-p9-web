@@ -3,13 +3,19 @@ module Alimento
 	class Plato
 
 		include Enumerable
-		
+		include Comparable
+
 		attr_reader :nombre, :lista, :cantidades
 		
 		def initialize(nombre, lista, cantidades)
 			@nombre, @lista, @cantidades = nombre, lista, cantidades
 		end
 		
+	
+		def <=>(otro)
+			VCT() <=> otro.VCT
+		end
+
 		def VCT
 			kcal_array = @lista.collect{|iter| iter.value.valor_energetico(iter.value.valor_glucidos(iter.value.carbohidratos), iter.value.valor_proteinas(iter.value.proteinas), iter.value.valor_lipidos(iter.value.lipidos))}
 			total_kcal_array = []

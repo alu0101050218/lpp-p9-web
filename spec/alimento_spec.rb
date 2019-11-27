@@ -370,8 +370,10 @@ RSpec.describe Alimento do
 	context "# Hay metodos para comparar objetos de herencia" do
 	
 	it "## Hay una manera de comparar la eficiencia energetica" do
-		expect(@ambiental_principal > @ambiental_secundario).to eq(false)
-
+		expect(@ambiental_principal > @ambiental_secundario).to eq(true)
+		expect(@plato_postre < @plato_principal).to eq(true)
+		expect(@plato_postre == @plato_postre).to eq(true)
+		expect(@ambiental_principal < @ambiental_secundario).to eq(false)
 	end
 	
 	end

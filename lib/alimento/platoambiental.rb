@@ -11,7 +11,11 @@ module Alimento
 			@emisiones = emisiones_total
 			@terreno = terreno_total
 		end
+			
 
+			def <=>(otro)
+				emisiones_total <=> otro.emisiones_total
+			end
 
 		def emisiones_total
 			gei_array = @lista.collect{|iter| iter.value.gei}
@@ -23,7 +27,8 @@ module Alimento
 			end
 			return (total_emisiones.sum).round(1)
 		end
-		
+	
+
 		def terreno_total
 			ter_array = @lista.collect{|iter| iter.value.terreno}
 			total_terreno = []
@@ -34,6 +39,7 @@ module Alimento
 			end
 			return (total_terreno.sum).round(1)
 		end
+
 
 		def to_s
 			string = "La eficiencia energetica de '#{nombre}' es: #{VCT()}"
