@@ -5,6 +5,5 @@
 ## **Nombre:** Hernan Daniel Gonzalez Guanipa
 
 ## **Contacto:** alu0101050218@ull.edu.es
- 
-## **Curso:** 3º - Ingenieria Informatica en la Universidad de La Laguna
 
+## **Curso:** 3º - Ingenieria Informatica en la Universidad de La Laguna
