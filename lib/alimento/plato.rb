@@ -33,5 +33,15 @@ module Alimento
 				return ((proteinas * 100) / total).round(1)
 			end
 
+
+		def porcentaje_carbohidratos 
+			total = VCT()
+			carbohidratos = 
+			i = 0
+				lista.each{|iter| 
+					carbohidratos += iter.value.valor_glucidos(iter.value.carbohidratos * @cantidades[i]/100)
+					i += 1}
+				return ((carbohidratos * 100) / total).round(1)
+			end
 	end
 end
