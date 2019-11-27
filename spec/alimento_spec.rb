@@ -349,4 +349,14 @@ RSpec.describe Alimento do
 			expect(@ambiental_principal.to_s).to eq("La eficiencia energetica de 'Vaca con salsa de queso' es: 739.1")
 		end
 	end
+
+	context "# Hay pruebas para saber si un objeto pertenece a una jerarquia" do
+		it "# Hay metodos para comprobar la clase de un objeto"do
+			expect(@ambiental_princial.is_a?BasicObject).to eq(true)
+			expect(@ambiental_principal.is_a?Alimento::Plato).to eq(true)
+			expect(@ambiental_principal.is_a?Alimento::PlatoAmbiental).to eq(true)
+			expect(@ambiental_principal.is_a?Alimento).to eq(false)
+
+		end
+	end
 end
