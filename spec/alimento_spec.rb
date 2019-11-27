@@ -26,14 +26,19 @@ RSpec.describe Alimento do
 		
 		@nodo_vaca = Alimento::Node.new(@carne_vaca, nil, nil)
 		@lista = Alimento::List.new(@carne_vaca)
+		
 		@española = Alimento::List.new(@chocolate)
 		@menu_español = [@chocolate, @lenteja, @lenteja, @lenteja, @nuez]
+		
 		@vasca = Alimento::List.new(@lenteja)
 		@menu_vasco = [ @lenteja, @lenteja, @lenteja, @chocolate, @chocolate, @chocolate ]
+		
 		@vegetaria = Alimento::List.new(@queso)
 		@menu_vegetario = [ @chocolate, @chocolate, @lenteja, @lenteja, @lenteja, @lenteja, @leche, @leche, @huevo ]
+		
 		@vegetaliana = Alimento::List.new(@chocolate)
 		@menu_vegetaliano = [ @chocolate, @lenteja, @lenteja, @lenteja, @nuez ]
+		
 		@locura_carne = Alimento::List.new(@carne_cordero)
 		@menu_locura = [ @carne_cordero, @carne_cordero, @salmon, @salmon, @salmon, @lenteja, @lenteja, @lenteja ]
 
@@ -44,10 +49,24 @@ RSpec.describe Alimento do
 		@vegetaliana.insert_sundry(@menu_vegetaliano)
 		@locura_carne.insert_sundry(@menu_locura)
 
+
 		@lista_principal = Alimento::List.new(@carne_vaca)
-		@cantidades_principal = [ 300, 100 ]
 		@lista_principal.insert_head(@queso)
+		@cantidades_principal = [ 300, 100 ]
 		@plato_principal = Alimento::Plato.new("Vaca con salsa de queso", @lista_principal, @cantidades_principal) 
+		
+		@lista_secundaria = Alimento::List.new(@pollo)
+		@menu_secundario = [@nuez, @tofu]
+		@lista_secundaria.insert_sundry(@menu_secundario)
+		@cantidades_secundaria = [100, 400, 200]
+		@plato_secundario = Alimento::Plato.new("Pollo con nueces y tofu", @lista_secundaria, @cantidades_secundaria)
+	
+		@lista_postre = Alimento::List.new(@chocolate)
+		@lista_postre.insert_head(@leche)
+		@cantidades_postre = [50, 100]
+		@plato_postre = Alimento::Plato.new("Batido de chocolate", @lista_postre, @cantidades_postre)
+		
+		@ambiental_principal = Alimento::PlatoAmbiental.new("Vaca con salsa de queso", @lista_principal, @cantidades_principal)
 	end
 
 	context "# Nombre del alimento" do
@@ -314,6 +333,16 @@ RSpec.describe Alimento do
 		
 		it "## Se puede obtener el formateo del plato" do
 			expect(@plato_principal.to_s).to eq("Plato: Vaca con salsa de queso, Componentes: 'Carne de vaca (300g)' 'Queso (100g)' ")
+		end
+	end
+
+	context "# Hay pruebas para la heredada de plato" do
+		it "## Hay un metodo para obtener las emisiones de gases de cada plato" do
+			expect(@ambiental_principal.emisiones).to eq(161)
+		end
+
+		it "## Hay un metodo para obtener el terreno de cada plato" do
+			expect(@ambiental_principal.terreno).to eq(533)
 		end
 	end
 end
