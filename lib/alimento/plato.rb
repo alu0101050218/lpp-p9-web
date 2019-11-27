@@ -43,5 +43,15 @@ module Alimento
 					i += 1}
 				return ((carbohidratos * 100) / total).round(1)
 			end
+
+		def porcentaje_lipidos 
+			total = VCT()
+			lipidos = 
+			i = 0
+				lista.each{|iter| 
+					lipidos += iter.value.valor_lipidos(iter.value.lipidos * @cantidades[i]/100)
+					i += 1}
+				return ((lipidos * 100) / total).round(1)
+			end
 	end
 end
