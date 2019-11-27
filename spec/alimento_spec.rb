@@ -351,12 +351,18 @@ RSpec.describe Alimento do
 	end
 
 	context "# Hay pruebas para saber si un objeto pertenece a una jerarquia" do
-		it "# Hay metodos para comprobar la clase de un objeto"do
+		it "## Hay metodos para comprobar la clase de un objeto"do
 			expect(@ambiental_princial.is_a?BasicObject).to eq(true)
 			expect(@ambiental_principal.is_a?Alimento::Plato).to eq(true)
 			expect(@ambiental_principal.is_a?Alimento::PlatoAmbiental).to eq(true)
 			expect(@ambiental_principal.is_a?Alimento).to eq(false)
+		end
 
+		it "## Hay metodos para comprobar el tipo de un objeto" do
+			expect(@ambiental_principal.instance_of?Alimento::PlatoAmbiental).to eq(true)
+			expect(@ambiental_principal.instance_of?Alimento::Plato).to eq(false)
+			expect(@española.instance_of?Alimento::Plato).to eq(false)
+			expect(@española.instance_of?Alimento::List).to eq(true)
 		end
 	end
 end
