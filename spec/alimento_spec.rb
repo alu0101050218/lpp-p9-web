@@ -308,6 +308,9 @@ RSpec.describe Alimento do
 			expect(@plato_principal.porcentaje_carbohidratos).to eq(0.7)
 		end
 
+		it "## Se puede obtener el porcentaje de lipidos de cada plato" do
+			expect(@plato_principal.porcentaje_lipidos).to eq(51.5)
+		end
 
 	end
 end
