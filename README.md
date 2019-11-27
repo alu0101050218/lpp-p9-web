@@ -6,4 +6,4 @@
 
 ## **Contacto:** alu0101050218@ull.edu.es
 
-## **Curso:** 2019 - 2020
+## **Curso:** 3º - Ingenieria Informatica en la Universidad de La Laguna
