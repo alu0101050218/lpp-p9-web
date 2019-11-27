@@ -463,7 +463,28 @@ RSpec.describe Alimento do
 			expect(@plato_princ_vegetaliana > @plato_postre_vegetaliana).to eq(false)
 			expect(@plato_princ_vegetaliana < @plato_postre_vegetaliana).to eq(true)
 			expect(@plato_princ_vegetaliana == @plato_postre_vegetaliana).to eq(false)
-	
+
+
+			expect(@plato_princ_locura > @plato_sec_locura).to eq(true)
+			expect(@plato_princ_locura < @plato_sec_locura).to eq(false)
+			expect(@plato_princ_locura == @plato_sec_locura).to eq(false)	
+		end
+
+		it "## Hay modos de hacer collect con las dietas" do
+
+			expect(@platos_española.collect{|iter| iter.value.VCT > 1200 }).to eq([true, false])
+			expect(@platos_vasca.collect{|iter| iter.value.VCT == 2712 }).to eq([true])
+			expect(@platos_vegetaria.collect{|iter| iter.value.VCT < 1000 }).to eq([true, false, false])
+			expect(@platos_vegetaliana.collect{|iter| iter.value.VCT > 2000 }).to eq([false,false])
+			expect(@platos_locura.collect{|iter| iter.value.VCT < 100 }).to eq([false,false,false])
+		end
+			
+		it "## Se puede contar cuantos platos tiene cada dieta" do
+			expect(@platos_española.count).to eq(2)
+			expect(@platos_vasca.count).to eq(1)
+			expect(@platos_vegetaria.count).to eq(3)
+			expect(@platos_vegetaliana.count).to eq(2)
+			expect(@platos_locura.count).to eq(3)
 		end
 	
 	end
