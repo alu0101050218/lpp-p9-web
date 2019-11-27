@@ -311,6 +311,9 @@ RSpec.describe Alimento do
 		it "## Se puede obtener el porcentaje de lipidos de cada plato" do
 			expect(@plato_principal.porcentaje_lipidos).to eq(51.5)
 		end
-
+		
+		it "## Se puede obtener el formateo del plato" do
+			expect(@plato_principal.to_s).to eq("Plato: Vaca con salsa de queso, Componentes: Carne de vaca (300g) | Queso (300g)")
+		end
 	end
 end
