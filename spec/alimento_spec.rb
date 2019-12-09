@@ -591,5 +591,10 @@ RSpec.describe Alimento do
 			expect(@ambiental_principal.huella_carbono).to eq(1)
 			expect(@plato_princ_vegetaliana.huella_carbono).to eq(1)
 		end
+
+		it "Se puede calcualr la huella nutricional (el total) de cada plato" do
+			expect(@ambiental_principal.huella_nutricional).to eq(1)
+			expect(@plato_princ_vasca.huella_nutricional).to eq(2)
+		end
 	end
 end
