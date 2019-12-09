@@ -142,10 +142,15 @@ RSpec.describe Alimento do
 
 		#---Menu de plato_sec_locura
 		@array_español = [@plato_princ_español, @plato_postre_español]
+		@precio_español = [10, 3.4]
 		@array_vasco = [@plato_princ_vasca]
+		@precio_vasco = [2]
 		@array_vegetaria = [@plato_princ_vegetaria, @plato_sec_vegetaria, @plato_postre_vegetaria]
+		@precio_vegetaria = [5, 6.6, 2]
 		@array_vegetaliana = [@plato_princ_vegetaliana, @plato_postre_vegetaliana]
+		@precio_vegetaliana = [1, 0.9]
 		@array_locura = [@plato_princ_locura, @plato_sec_locura, @plato_postre_locura]
+		@precio_locura = [4, 7.5, 9]
 	end
 
 
@@ -609,6 +614,13 @@ RSpec.describe Alimento do
 		it "Hay un metodo para comparar las huellas nutricionales" do
 			expect(@array_español.Max).to eq(@plato_princ_español)
 			expect(@array_vegetaria.Max).to eq(@plato_sec_vegetaria)
+		end
+	end
+
+	context "Se puede obtener el precio de los platos" do
+		it "Se puede aumentar el precio de los platos segun su huella detetica" do
+			expect(@array_español.high_prices).to eq([15, 5.1])
+			expect(@array_vegetaria.high_prices).to eq([6.25,8.25,2.5])
 		end
 	end
 end
