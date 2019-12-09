@@ -1,17 +1,17 @@
 module Alimento
-	
+
 	class Plato
 
 		include Enumerable
 		include Comparable
 
 		attr_reader :nombre, :lista, :cantidades
-		
+
 		def initialize(nombre, lista, cantidades)
 			@nombre, @lista, @cantidades = nombre, lista, cantidades
 		end
-		
-	
+
+
 		def <=>(otro)
 			VCT() <=> otro.VCT
 		end
@@ -26,32 +26,32 @@ module Alimento
 			return total_kcal.round(1)
 		end
 
-		def porcentaje_proteinas 
+		def porcentaje_proteinas
 			total = VCT()
-			proteinas = 
+			proteinas =
 			i = 0
-				lista.each{|iter| 
+				lista.each{|iter|
 					proteinas += iter.value.valor_proteinas(iter.value.proteinas * @cantidades[i]/100)
 					i += 1}
 				return ((proteinas * 100) / total).round(1)
 			end
 
 
-		def porcentaje_carbohidratos 
+		def porcentaje_carbohidratos
 			total = VCT()
-			carbohidratos = 
+			carbohidratos =
 			i = 0
-				lista.each{|iter| 
+				lista.each{|iter|
 					carbohidratos += iter.value.valor_glucidos(iter.value.carbohidratos * @cantidades[i]/100)
 					i += 1}
 				return ((carbohidratos * 100) / total).round(1)
 			end
 
-		def porcentaje_lipidos 
+		def porcentaje_lipidos
 			total = VCT()
-			lipidos = 
+			lipidos =
 			i = 0
-				lista.each{|iter| 
+				lista.each{|iter|
 					lipidos += iter.value.valor_lipidos(iter.value.lipidos * @cantidades[i]/100)
 					i += 1}
 				return ((lipidos * 100) / total).round(1)
@@ -63,9 +63,9 @@ module Alimento
 			lista.collect{|iter|
 				string += "'#{iter.value.nombre} (#{cantidades[i]}g)' "
 				i += 1 }
-			
+
 			return string
 		end
-	
+
 	end
 end

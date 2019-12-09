@@ -1,7 +1,7 @@
 module Alimento
 
 	class PlatoAmbiental < Plato
-	
+
 		include Comparable
 
 		attr_reader :emisiones, :terreno
@@ -11,23 +11,23 @@ module Alimento
 			@emisiones = emisiones_total
 			@terreno = terreno_total
 		end
-			
+
 
 			def <=>(otro)
 				emisiones_total <=> otro.emisiones_total
 			end
 
 		def emisiones_total
-			gei_array = @lista.collect{|iter| iter.value.gei}
-			total_emisiones = []
+
+			total_emisiones = 0
 			i = 0
-			while i < @cantidades.length do
-				total_emisiones.push(gei_array[i] * (@cantidades[i]/100))
-				i +=1
-			end
-			return (total_emisiones.sum).round(1)
+			@lista.each{|iter|
+				total_emisiones += (iter.value.gei * @cantidades[i]/100)
+				i += 1
+			}
+			return total_emisiones.round(1)
 		end
-	
+
 
 		def terreno_total
 			ter_array = @lista.collect{|iter| iter.value.terreno}
