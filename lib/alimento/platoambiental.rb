@@ -39,11 +39,22 @@ module Alimento
 			end
 			return (total_terreno.sum).round(1)
 		end
-		
+
 		def huella_energia
 			if 	VCT() < 670
 				return 1
-			elsif (670..820) === VCT()
+			elsif (670..830) === VCT()
+				return 2
+			else
+				return 3
+			end
+		end
+
+		def huella_carbono
+			emi_total_dia = ((emisiones_total()*1000)/365)
+			if 	emi_total_dia < 800
+				return 1
+			elsif (800..1200) === emi_total_dia
 				return 2
 			else
 				return 3

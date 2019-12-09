@@ -588,7 +588,7 @@ RSpec.describe Alimento do
 		end
 
 		it "## Se puede calcular la huella de carbono de cada plato" do
-			expect(@ambiental_princial.huella_carbono).to eq(2)
+			expect(@ambiental_principal.huella_carbono).to eq(1)
 			expect(@plato_princ_vegetaliana.huella_carbono).to eq(1)
 		end
 	end
