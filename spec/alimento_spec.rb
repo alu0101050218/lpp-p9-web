@@ -619,8 +619,8 @@ RSpec.describe Alimento do
 
 	context "Se puede obtener el precio de los platos" do
 		it "Se puede aumentar el precio de los platos segun su huella detetica" do
-			expect(@array_español.high_prices).to eq([15, 5.1])
-			expect(@array_vegetaria.high_prices).to eq([6.25,8.25,2.5])
+			expect(@array_español.high_prices(@precio_español)).to eq([11, 3.74])
+			expect(@array_vegetaria.high_prices(@precio_vegetaria)).to eq([5.5,7.26,2.2])
 		end
 	end
 end
