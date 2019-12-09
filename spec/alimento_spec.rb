@@ -579,4 +579,11 @@ RSpec.describe Alimento do
 			expect(names_array).to eq(["Medallones de salmon", "Cerdo al horno con verduras", "Buen plato de lentejas"])
 		end
 	end
+
+	context "# Hay metodos para saber la huella nutricional" do
+	
+		it "## Se puede calcular " do
+
+		end
+	end
 end
