@@ -124,7 +124,6 @@ RSpec.describe Alimento do
 		@platos_vegetaliana.insert_head(@plato_postre_vegetaliana)
 
 	#---Dieta locura
-
 		@lista_princ_locura = Alimento::List.new(@carne_cordero)
 		@cantidades_princ_locura = [300]
 		@plato_princ_locura = Alimento::PlatoAmbiental.new("Cerdo al horno con verduras", @lista_princ_locura, @cantidades_princ_locura)
@@ -140,7 +139,15 @@ RSpec.describe Alimento do
 		@platos_locura = Alimento::List.new(@plato_princ_locura)
 		@conjunto_platos_locura = [@plato_sec_locura, @plato_postre_locura]
 		@platos_locura.insert_sundry(@conjunto_platos_locura)
+
+		#---Menu de plato_sec_locura
+		@array_español = [@plato_princ_español, @plato_postre_español]
+		@array_vasco = [@plato_princ_vasca]
+		@array_vegetaria = [@plato_princ_vegetaria, @plato_sec_vegetaria, @plato_postre_vegetaria]
+		@array_vegetaliana = [@plato_princ_vegetaliana, @plato_postre_vegetaliana]
+		@array_locura = [@plato_princ_locura, @plato_sec_locura, @plato_postre_locura]
 	end
+
 
 	context "# Nombre del alimento" do
 
@@ -595,6 +602,13 @@ RSpec.describe Alimento do
 		it "Se puede calcualr la huella nutricional (el total) de cada plato" do
 			expect(@ambiental_principal.huella_nutricional).to eq(1)
 			expect(@plato_princ_vasca.huella_nutricional).to eq(2)
+		end
+	end
+
+	context "Se puede saber el plato con huella nutricional maxima" do
+		it "Hay un metodo para comparar las huellas nutricionales" do
+			expect(@array_español.Max).to eq(@plato_princ_español)
+			expect(@array_vegetaria.Max).to eq(@plato_sec_vegetaria)
 		end
 	end
 end

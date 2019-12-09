@@ -3,6 +3,7 @@ module Alimento
 	class PlatoAmbiental < Plato
 
 		include Comparable
+		include Enumerable
 
 		attr_reader :emisiones, :terreno
 
@@ -67,7 +68,7 @@ module Alimento
 		def huella_nutricional
 			return ((huella_carbono + huella_energia) / 2).floor
 		end
-
+		
 
 		def to_s
 			string = "La eficiencia energetica de '#{nombre}' es: #{VCT()}"
