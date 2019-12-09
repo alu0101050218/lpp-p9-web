@@ -40,6 +40,7 @@ module Alimento
 			return (total_terreno.sum).round(1)
 		end
 
+
 		def huella_energia
 			if 	VCT() < 670
 				return 1
@@ -49,6 +50,7 @@ module Alimento
 				return 3
 			end
 		end
+
 
 		def huella_carbono
 			emi_total_dia = ((emisiones_total()*1000)/365)
@@ -60,6 +62,12 @@ module Alimento
 				return 3
 			end
 		end
+
+
+		def huella_nutricional
+			return ((huella_carbono + huella_energia) / 2).floor
+		end
+
 
 		def to_s
 			string = "La eficiencia energetica de '#{nombre}' es: #{VCT()}"
