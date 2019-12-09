@@ -39,7 +39,16 @@ module Alimento
 			end
 			return (total_terreno.sum).round(1)
 		end
-
+		
+		def huella_energia
+			if 	VCT() < 670
+				return 1
+			elsif (670..820) === VCT()
+				return 2
+			else
+				return 3
+			end
+		end
 
 		def to_s
 			string = "La eficiencia energetica de '#{nombre}' es: #{VCT()}"

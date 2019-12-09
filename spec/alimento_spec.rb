@@ -583,8 +583,8 @@ RSpec.describe Alimento do
 	context "# Hay metodos para saber la huella nutricional" do
 
 		it "## Se puede calcular la huella de energia de cada plato" do
-			expect(@plato_princ_vasca.huella_energia).to eq(1)
-			expect(@plato_princ_vegetaliana.huella_energia).to eq(2)
+			expect(@ambiental_principal.huella_energia).to eq(2)
+			expect(@plato_princ_vegetaliana.huella_energia).to eq(3)
 		end
 	end
 end
