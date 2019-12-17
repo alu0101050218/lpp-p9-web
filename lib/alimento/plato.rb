@@ -1,4 +1,3 @@
-# @title Implementacion de cada plato con sus respectivos alimentos
 # @author Hernan Daniel Gonzalez Guanipa
 module Alimento
 
@@ -13,7 +12,7 @@ module Alimento
 		# @note Constructor de la clase
 		# @param nombre Identificador del plato
 		# @param lista Lista de alimentos
-		# @param catidades Vector de las cantidades de cada alimento
+		# @param cantidades Vector de las cantidades de cada alimento
 		def initialize(nombre, lista, cantidades)
 			@nombre, @lista, @cantidades = nombre, lista, cantidades
 		end

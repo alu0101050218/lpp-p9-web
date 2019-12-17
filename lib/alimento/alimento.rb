@@ -1,4 +1,3 @@
-# @title Clase con las caracteristicas de cada alimento
 # @author Hernan Daniel Gonzalez Guanipa
 
 module Alimento
@@ -11,7 +10,7 @@ module Alimento
 
 		# @note Constructor de la clase
 		# @param nombre Identificador del alimento
-		# @param proteimas Cantidad de proteinas en gramos
+		# @param proteinas Cantidad de proteinas en gramos
 		# @param carbohidratos Cantida de carbohidratos en gramos
 		# @param lipidos Cantidad e lipidos en gramos
 		# @param gei Cantidad de emisiones de gases
@@ -28,7 +27,7 @@ module Alimento
 		end
 
 		# @note Conversion de los carbohidratos a kcal
-		# @param carbohidratos Cantidad de carbohidratos en gramos
+		# @param carbohidrato Cantidad de carbohidratos en gramos
 		# @return [Float] El cambio a kcal
 		def valor_glucidos (carbohidrato)
 			return (carbohidrato*4).round(1)
@@ -63,7 +62,7 @@ module Alimento
 
 		# @note	Calculo de emisiones de gases de un conjunto de alimentos
 		# @param persona Vector de conjunto de alimentos
-		# @param cuantos_personas Vector de cantidad de cada alimento
+		# @param cuantos_persona Vector de cantidad de cada alimento
 		# @return [Float] Emisiones del conjunto de alimntos y sus respectivas cantidades
 		def impacto_ambiental(persona, cuantos_persona)
 			i = 0

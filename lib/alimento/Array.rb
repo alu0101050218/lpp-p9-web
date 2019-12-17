@@ -1,4 +1,3 @@
-# @title Modificacion de la clase Array ya existente
 # @author Hernan Daniel Gonzalez Guanipa
 class Array
 

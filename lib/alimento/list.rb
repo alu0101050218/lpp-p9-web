@@ -1,4 +1,3 @@
-# @title Implementacion de una lista doblemente enlazada
 # @author Hernan Daniel Gonzalez Guanipa
 module Alimento
 	
@@ -62,7 +61,7 @@ module Alimento
 		
 
 
-		# @node Extraer el elemento en la cabeza de la lista
+		# @note Extraer el elemento en la cabeza de la lista
 		# @return [Node] Nodo de la lista extraido
 		def extract_head
 			actual_head = @head
@@ -73,7 +72,7 @@ module Alimento
 		end
 		
 
-		# @node Extraer elemento en la cabeza de la lista
+		# @note Extraer elemento en la cabeza de la lista
 		# @return [Node] Nodo de la lista extraido
 		def extract_tail
 			actual_tail = @tail

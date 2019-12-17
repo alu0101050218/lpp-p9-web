@@ -1,4 +1,3 @@
-# @title Implementacion de la clase heredada de Plato con la inclusion de metodos
 # @author Hernan Daniel Gonzalez Guanipa
 module Alimento
 
