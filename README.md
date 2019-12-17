@@ -1,9 +1,9 @@
-# Practica 8 - Herencia y Modulos
+# Practica 9 - Progrmacion Funcional. Funciones de orden superior
 
-## **Asignatura:** Logaritmos y Paradigmas de la programacion
+## *Asignatura:* Logaritmos y Paradigmas de la programacion
 
-## **Nombre:** Hernan Daniel Gonzalez Guanipa
+## *Nombre:* Hernan Daniel Gonzalez Guanipa
 
-## **Contacto:** alu0101050218@ull.edu.es
+## *Contacto:* alu0101050218@ull.edu.es
 
-## **Curso:** 3º - Ingenieria Informatica en la Universidad de La Laguna
+## *Curso:* 3º - Ingenieria Informatica en la Universidad de La Laguna
