@@ -1,3 +1,5 @@
+# @title Implementacion de la clase heredada de Plato con la inclusion de metodos
+# @author Hernan Daniel Gonzalez Guanipa
 module Alimento
 
 	class PlatoAmbiental < Plato
@@ -7,19 +9,28 @@ module Alimento
 
 		attr_reader :emisiones, :terreno
 
+
+		# @note Constructor de la clase que llama al de Plato y al propio
+		# @param nombre Identificador del plato
+		# @param lista Conjunto de alimentos del plato
+		# @param cantidades Vector de cantidades de cada alimento
 		def initialize(nombre, lista, cantidades)
 			super(nombre, lista, cantidades)
 			@emisiones = emisiones_total
 			@terreno = terreno_total
 		end
 
+			# @note Comparador de las emisiones ambientales totales de cada plato
+			# @param otro Objeto del mismo tipo con el cual comparar
+			# @return [PlatoAmbiental] Plato con mayores emisiones
+		def <=>(otro)
+			emisiones_total <=> otro.emisiones_total
+		end
 
-			def <=>(otro)
-				emisiones_total <=> otro.emisiones_total
-			end
 
+		# @note Calculo de las emisiones de gases del plato
+		# @return [Float] Emisiones totales del plato
 		def emisiones_total
-
 			total_emisiones = 0
 			i = 0
 			@lista.each{|iter|
@@ -30,6 +41,8 @@ module Alimento
 		end
 
 
+		# @note Calculo del terreno ocupado por los alimentos del plato
+		# @return [Float] Terreno total de los alimentos del plato
 		def terreno_total
 			ter_array = @lista.collect{|iter| iter.value.terreno}
 			total_terreno = []
@@ -42,6 +55,9 @@ module Alimento
 		end
 
 
+
+		# @note Calculo del indice de huella nutricional del plato
+		# @return [Integer] Indice resultante
 		def huella_energia
 			if 	VCT() < 670
 				return 1
@@ -52,7 +68,9 @@ module Alimento
 			end
 		end
 
-
+	
+		# @note Calculo de la huella de carbono total del plato
+		# @return [Integer] Indice segun la huella de carbono del plato
 		def huella_carbono
 			emi_total_dia = ((emisiones_total()*1000)/365)
 			if 	emi_total_dia < 800
@@ -64,12 +82,16 @@ module Alimento
 			end
 		end
 
-
+		
+		# @note Calculo del indice medio entre todos los del plato
+		# @return [Integer] Indice de media de los demas
 		def huella_nutricional
 			return ((huella_carbono + huella_energia) / 2).floor
 		end
 		
 
+		# @note Formateo del plato
+		# @return [String] Datos del plato que son el nombre y energia total
 		def to_s
 			string = "La eficiencia energetica de '#{nombre}' es: #{VCT()}"
 			return string
