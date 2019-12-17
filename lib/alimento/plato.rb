@@ -1,3 +1,5 @@
+# @title Implementacion de cada plato con sus respectivos alimentos
+# @author Hernan Daniel Gonzalez Guanipa
 module Alimento
 
 	class Plato
@@ -7,15 +9,25 @@ module Alimento
 
 		attr_reader :nombre, :lista, :cantidades
 
+	
+		# @note Constructor de la clase
+		# @param nombre Identificador del plato
+		# @param lista Lista de alimentos
+		# @param catidades Vector de las cantidades de cada alimento
 		def initialize(nombre, lista, cantidades)
 			@nombre, @lista, @cantidades = nombre, lista, cantidades
 		end
 
-
+		# @note Comparador de platos
+		# @param otro Objeto de tipo plato con el que comparar
+		# @return Plato con mayor contenido en kcal
 		def <=>(otro)
 			VCT() <=> otro.VCT
 		end
 
+
+		# @note Calculo de las kcal totales de cada plato con sus cantidades
+		# @return [Float] Valor total de kcal
 		def VCT
 			total_kcal = 0
 			i = 0
@@ -26,6 +38,9 @@ module Alimento
 			return total_kcal.round(1)
 		end
 
+
+		# @note Calculo del procentaje de proteinas del plato
+		# @return [Float] Porcentaje de proteinas
 		def porcentaje_proteinas
 			total = VCT()
 			proteinas =
@@ -37,6 +52,8 @@ module Alimento
 			end
 
 
+		# @note Calculo del procentaje de carbohidratos del plato
+		# @return [Float] Porcentaje de carbohidratos
 		def porcentaje_carbohidratos
 			total = VCT()
 			carbohidratos =
@@ -47,6 +64,9 @@ module Alimento
 				return ((carbohidratos * 100) / total).round(1)
 			end
 
+		
+		# @note Calculo del procentaje de lipidos del plato
+		# @return [Float] Porcentaje de lipidos
 		def porcentaje_lipidos
 			total = VCT()
 			lipidos =
@@ -57,6 +77,9 @@ module Alimento
 				return ((lipidos * 100) / total).round(1)
 			end
 
+
+		# @note Formateo del plato
+		# @return [String] El nombre del plato y los alimentos que lo componen
 		def to_s
 			string = "Plato: #{nombre}, Componentes: "
 			i = 0
