@@ -1,4 +1,4 @@
-# Practica 9 - Progrmacion Funcional. Funciones de orden superior
+# Practica 9 - Programacion Funcional. Funciones de orden superior
 
 ## *Asignatura:* Logaritmos y Paradigmas de la programacion
 

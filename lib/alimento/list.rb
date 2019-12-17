@@ -1,5 +1,8 @@
+# @title Implementacion de una lista doblemente enlazada
+# @author Hernan Daniel Gonzalez Guanipa
 module Alimento
-
+	
+	# @note Estructura de datos correspondiente a un nodo
 	Node = Struct.new(:value, :next, :prev)
 
 	class List
@@ -7,6 +10,7 @@ module Alimento
 		include Enumerable
 
 		attr_reader :head, :tail
+		
 
 		def initialize (value)
 			@head = Node.new(value, nil, nil) 
